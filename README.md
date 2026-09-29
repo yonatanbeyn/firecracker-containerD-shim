@@ -17,6 +17,10 @@ boots a fresh Firecracker VM per container, with an agent inside the guest.
 > [docs/LAMBDA-SEMANTICS.md](docs/LAMBDA-SEMANTICS.md) for what is and is not
 > implemented, and what it would take to close the gap.
 
+A third layer, running AI agents under [NVIDIA OpenShell](https://github.com/NVIDIA/OpenShell)
+policy inside these microVMs, is designed but **not yet verified**. See
+[docs/OPENSHELL.md](docs/OPENSHELL.md).
+
 Firecracker needs KVM, which Windows does not provide. The path that works is
 **nested virtualization**: Hyper-V runs WSL2, WSL2's kernel exposes `/dev/kvm`,
 and Firecracker runs inside WSL2.
@@ -154,6 +158,8 @@ docs/
                                    runtime, Java workload, full-OS contrast
   LAMBDA-SEMANTICS.md              how Lambda-like this is (and is not);
                                    WSL idle timeout vs Lambda's timeouts
+  OPENSHELL.md                     design (unverified): NVIDIA OpenShell
+                                   agent sandboxes on top of this stack
   TROUBLESHOOTING.md
 ```
 
